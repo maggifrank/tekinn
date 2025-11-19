@@ -144,19 +144,7 @@
 <div class="quote" style="top: 85%; left: 30%; animation-delay: 5s;">Erum við ekki bara góðir?</div>
 <div class="quote" style="top: 90%; left: 35%; animation-delay: 0s;">Bald lives matter!</div>
   <div class="container">
-<h1><div id="number"></div> teknir eins og er!
- 
-  <script>
-    // Function to generate and display a random number
-    function showcounter() {
-      const visits = Math.floor(Math.random() * 10000);
-      const formatted = "0" + String(visits).padStart(4, "0");
-      document.getElementById("number").textContent = formatted;
-    }
- 
-    // Run it automatically when the page loads
-    window.onload = showcounter;
-</script></h1>
+<h1>TEKINN></h1>
 <img src="auddi-tekinn.jpg" alt="TEKINN" />
 </div>
 
