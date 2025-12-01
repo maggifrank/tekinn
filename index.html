@@ -133,9 +133,11 @@
 </head>
  
 <body>
-  <audio autoplay loop>
+  <audio id="bgmusic" autoplay loop muted>
     <source src="nidurhal.mp3" type="audio/mpeg">
   </audio>
+  <button onclick="document.getElemendById('bgmusic').muted = false;">
+  </button>
   <div class="scanline"></div>
 
   <div class="quote" style="top: 40%; left: 5%; animation-delay: 0s;">Auddi Blö!</div>
