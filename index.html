@@ -133,7 +133,7 @@
 </head>
  
 <body>
-  <audio id="bgmusic" autoplay loop muted>
+  <audio controls>
     <source src="nidurhal.mp3" type="audio/mpeg">
   </audio>
   <div class="scanline"></div>
@@ -147,9 +147,10 @@
   <div class="quote" style="top: 90%; left: 35%; animation-delay: 0s;">Bald lives matter!</div>
   <div class="container">
     <h1>TEKINN!</h1>
-      <button onclick="document.getElemendById('bgmusic').muted = false;">
-        <img src="auddi-tekinn.jpg" alt="TEKINN" />
-      </button>
+     <!-- 
+    <button onclick="document.getElemendById('bgmusic').muted = false;"></button>
+    -->
+    <img src="auddi-tekinn.jpg" alt="TEKINN" />
   </div>
 </body>
 </html>
