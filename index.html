@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-28730J465E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-28730J465E');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3914055246394902" crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tekinn CMS</title>
-  <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+  <title>TEKINN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body></body>
+<body>
+
+  <canvas id="bgCanvas"></canvas>
+  <div class="glitch-overlay"></div>
+  <div class="scanline"></div>
+  <div id="cursor"></div>
+
+  <div class="container">
+    <h1>TEKINN!</h1>
+    <a href="horfa.html">
+      <img class="hero" id="heroImg" src="auddi-tekinn.jpg" alt="TEKINN" />
+    </a>
+  </div>
+
+  <audio id="bgAudio" loop>
+    <source src="nidurhal.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="shared.js"></script>
+  <script src="index.js"></script>
+
+  <!-- Netlify Identity: redirect invite/recovery tokens to admin.html -->
+  <script>
+    if (window.location.hash && window.location.hash.includes('invite_token=') || window.location.hash.includes('recovery_token=')) {
+      window.location = '/admin.html' + window.location.hash;
+    }
+  </script>
+</body>
 </html>

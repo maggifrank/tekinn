@@ -4,7 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tekinn CMS</title>
+  <script>
+    // Tell Decap where to find the config since this file isn't in /admin/
+    window.CMS_MANUAL_INIT = true;
+  </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({ config: { load_config_file: false,
+      backend: { name: 'git-gateway', branch: 'main' },
+      media_folder: 'public',
+      collections: [
+        {
+          name: 'quotes',
+          label: 'Floating Quotes',
+          files: [
+            {
+              name: 'quotes',
+              label: 'Quotes',
+              file: 'quotes.json',
+              fields: [
+                {
+                  name: 'quotes',
+                  label: 'Quotes',
+                  label_singular: 'Quote',
+                  widget: 'list',
+                  summary: '{{fields.quote}}',
+                  field: { name: 'quote', label: 'Quote', widget: 'string' }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }});
+  </script>
 </head>
 <body></body>
 </html>
