@@ -1,18 +1,47 @@
 {
   "quotes": [
-    { "quote": "Auddi Blö!" },
-    { "quote": "Hvað segir kjellinn!" },
-    { "quote": "Gilsari í gangi!" },
-    { "quote": "Þetta reddast sko!" },
-    { "quote": "Auðunn Blöndal approves" },
-    { "quote": "Erum við ekki bara góðir?" },
-    { "quote": "Bald lives matter!" },
-    { "quote": "TEKINN 🤯" },
-    { "quote": "ÞÚ VARST TEKINN" },
-    { "quote": "Blöndal out here!!" },
-    { "quote": "KJELLINN!!" },
-    { "quote": "Hvað er í gangi??" },
-    { "quote": "ÓTRÚLEGT" },
-    { "quote": "holy moly" }
+    {
+      "quote": "Auddi Blö!"
+    },
+    {
+      "quote": "Hvað segir kjellinn!"
+    },
+    {
+      "quote": "Gilsari í gangi!"
+    },
+    {
+      "quote": "Þetta reddast sko!"
+    },
+    {
+      "quote": "Auðunn Blöndal approves"
+    },
+    {
+      "quote": "Erum við ekki bara góðir?"
+    },
+    {
+      "quote": "Bald lives matter!"
+    },
+    {
+      "quote": "TEKINN 🤯"
+    },
+    {
+      "quote": "ÞÚ VARST TEKINN"
+    },
+    {
+      "quote": "Blöndal out here!!"
+    },
+    {
+      "quote": "KJELLINN!!"
+    },
+    {
+      "quote": "Hvað er í gangi??"
+    },
+    {
+      "quote": "ÓTRÚLEGT"
+    },
+    {
+      "quote": "holy moly"
+    },
+    "Áttu nokkuð mugguhnugga með hörðum pappa?"
   ]
 }
