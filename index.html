@@ -1,155 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-28730J465E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-28730J465E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-28730J465E');
+  </script>
 
-  gtag('config', 'G-28730J465E');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3914055246394902"
-     crossorigin="anonymous"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3914055246394902" crossorigin="anonymous"></script>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TEKINN</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;600&a… rel="stylesheet">
- 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEKINN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at center, #ff0099, #4200ff, #00ffee, #ff8c00);
-      background-size: 400% 400%;
-      animation: bgShift 12s ease infinite;
+      background: #000;
       color: white;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
+      cursor: none;
     }
- 
-    @keyframes bgShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
- 
-    /* Flying rotating quotes */
-    .quote {
-      position: absolute;
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: 600;
-      opacity: 0.7;
-      animation: floatQuote 12s linear infinite;
+
+    /* ── CURSOR ── */
+    #cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ff00f2;
+      mix-blend-mode: difference;
       pointer-events: none;
-      text-shadow: 0 0 10px black;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width 0.1s, height 0.1s;
+      box-shadow: 0 0 15px #ff00f2;
     }
- 
-    @keyframes floatQuote {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-      50% { transform: translateY(-200px) rotate(180deg); opacity: 1; }
-      100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
+
+    /* ── CANVAS BACKGROUND ── */
+    #bgCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
     }
- 
-    .container {
-      text-align: center;
-      margin-top: 10vh;
-      position: relative;
-      z-index: 10;
+
+    /* ── GLITCH OVERLAY ── */
+    .glitch-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      animation: glitchFlash 0.08s steps(1) infinite;
+      opacity: 0;
     }
- 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 5rem;
-      letter-spacing: 5px;
-      text-shadow: 0 0 25px #ff00f2, 0 0 50px #00ffe1;
-      transition: all 0.3s;
-      cursor: pointer;
-      animation: pulse 3s infinite alternate;
+    @keyframes glitchFlash {
+      0%   { opacity: 0; background: rgba(255,0,0,0.03); transform: translateX(0); }
+      10%  { opacity: 1; background: rgba(0,255,255,0.05); transform: translateX(-4px); }
+      20%  { opacity: 0; }
+      85%  { opacity: 0; }
+      90%  { opacity: 1; background: rgba(255,0,255,0.04); transform: translateX(3px) skewX(2deg); }
+      100% { opacity: 0; transform: translateX(0); }
     }
- 
-    h1:hover {
-      transform: scale(1.15) rotate(4deg);
-    }
- 
-    @keyframes pulse {
-      from { text-shadow: 0 0 20px #ff00f2; }
-      to { text-shadow: 0 0 60px #00ffe1; }
-    }
- 
-    img {
-      width: 55%;
-      max-width: 550px;
-      border-radius: 30px;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
-      animation: float 5s ease-in-out infinite;
-      transition: 0.4s;
-      cursor: pointer;
-    }
- 
-    /* Hover chaos */
-    img:hover {
-      transform: scale(1.2) rotate(8deg);
-      filter: hue-rotate(150deg) saturate(2);
-      box-shadow: 0 0 80px #ffffff;
-    }
- 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
- 
-    /* Scanlines for retro chaos */
+
+    /* ── SCANLINES ── */
     .scanline {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(255,255,255,0.05) 0px,
-        rgba(255,255,255,0.05) 3px,
-        transparent 3px,
-        transparent 6px
+        rgba(255,255,255,0.04) 0px,
+        rgba(255,255,255,0.04) 2px,
+        transparent 2px,
+        transparent 5px
       );
       pointer-events: none;
-      mix-blend-mode: overlay;
-      animation: scan 7s linear infinite;
+      z-index: 2;
+      animation: scan 4s linear infinite;
     }
- 
     @keyframes scan {
-      0% { transform: translateY(-100%); }
+      0%   { transform: translateY(-100%); }
       100% { transform: translateY(100%); }
     }
- 
+
+    /* ── FLOATING QUOTES ── */
+    .quote {
+      position: fixed;
+      color: #fff;
+      font-weight: 700;
+      pointer-events: none;
+      text-shadow: 0 0 8px currentColor;
+      z-index: 3;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding-top: 8vh;
+      min-height: 100vh;
+    }
+
+    /* ── HEADING ── */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 900;
+      letter-spacing: 8px;
+      margin: 0 0 2rem;
+      cursor: none;
+      position: relative;
+      display: inline-block;
+      animation: titleWobble 2s ease-in-out infinite;
+    }
+    h1::before,
+    h1::after {
+      content: 'TEKINN!';
+      position: absolute;
+      inset: 0;
+      opacity: 0.8;
+    }
+    h1::before {
+      color: #ff0000;
+      animation: glitchL 3s infinite steps(1);
+    }
+    h1::after {
+      color: #00ffee;
+      animation: glitchR 2.5s infinite steps(1);
+    }
+    @keyframes glitchL {
+      0%,90%,100% { transform: translate(0); clip-path: none; }
+      92%  { transform: translate(-6px, 2px); clip-path: inset(20% 0 60% 0); }
+      94%  { transform: translate(4px, -3px); clip-path: inset(60% 0 10% 0); }
+      96%  { transform: translate(-2px, 1px); clip-path: inset(40% 0 40% 0); }
+    }
+    @keyframes glitchR {
+      0%,88%,100% { transform: translate(0); clip-path: none; }
+      90%  { transform: translate(6px, -2px); clip-path: inset(10% 0 70% 0); }
+      93%  { transform: translate(-4px, 3px); clip-path: inset(70% 0 5% 0); }
+      96%  { transform: translate(2px, -1px); clip-path: inset(30% 0 50% 0); }
+    }
+    @keyframes titleWobble {
+      0%,100% { transform: rotate(-1deg) scale(1); }
+      25%  { transform: rotate(2deg) scale(1.03); }
+      50%  { transform: rotate(-0.5deg) scale(0.98); }
+      75%  { transform: rotate(1.5deg) scale(1.02); }
+    }
+
+    /* ── IMAGE ── */
+    img.hero {
+      width: 50%;
+      max-width: 480px;
+      border-radius: 20px;
+      cursor: none;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      animation: imgChaos 6s ease-in-out infinite;
+      filter: saturate(1.5) contrast(1.1);
+      transition: filter 0.3s;
+    }
+    img.hero:hover {
+      filter: hue-rotate(180deg) saturate(3) contrast(1.5);
+      animation: imgPanic 0.3s steps(1) infinite;
+    }
+    @keyframes imgChaos {
+      0%   { transform: translateY(0)    rotate(0deg)   scale(1); }
+      20%  { transform: translateY(-15px) rotate(-2deg) scale(1.02); }
+      40%  { transform: translateY(5px)  rotate(3deg)   scale(0.98); }
+      60%  { transform: translateY(-10px) rotate(-1deg) scale(1.03); }
+      80%  { transform: translateY(8px)  rotate(2deg)   scale(0.99); }
+      100% { transform: translateY(0)    rotate(0deg)   scale(1); }
+    }
+    @keyframes imgPanic {
+      0%  { transform: translate(-5px, 3px)  rotate(-3deg) scale(1.1); filter: hue-rotate(0deg)   saturate(3); }
+      25% { transform: translate(5px, -3px)  rotate(5deg)  scale(1.15); filter: hue-rotate(90deg)  saturate(4); }
+      50% { transform: translate(-3px, -5px) rotate(-2deg) scale(1.05); filter: hue-rotate(180deg) saturate(3); }
+      75% { transform: translate(4px, 4px)   rotate(4deg)  scale(1.12); filter: hue-rotate(270deg) saturate(4); }
+    }
+
+    /* ── CURSOR TRAIL PARTICLES ── */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 99998;
+      animation: particleFade 0.6s ease-out forwards;
+    }
+    @keyframes particleFade {
+      0%   { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0) translateY(-30px); }
+    }
+
+    /* ── CLICK BURST ── */
+    .burst {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99997;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 10px currentColor;
+      animation: burstAway 0.7s ease-out forwards;
+    }
+    @keyframes burstAway {
+      0%   { opacity: 1; transform: translate(-50%,-50%) scale(0.5); }
+      50%  { opacity: 1; transform: translate(-50%,-120%) scale(1.2); }
+      100% { opacity: 0; transform: translate(-50%,-200%) scale(0.8); }
+    }
   </style>
 </head>
- 
 <body>
 
+  <canvas id="bgCanvas"></canvas>
+  <div class="glitch-overlay"></div>
   <div class="scanline"></div>
+  <div id="cursor"></div>
 
-  <div class="quote" style="top: 40%; left: 5%; animation-delay: 0s;">Auddi Blö!</div>
-  <div class="quote" style="top: 60%; left: 15%; animation-delay: 2s;">Hvað segir kjellinn!</div>
-  <div class="quote" style="top: 40%; left: 80%; animation-delay: 4s;">Gilsari í gangi!</div>
-  <div class="quote" style="top: 75%; left: 50%; animation-delay: 1s;">Þetta reddast sko!</div>
-  <div class="quote" style="top: 20%; left: 70%; animation-delay: 3s;">Auðunn Blöndal approves</div>
-  <div class="quote" style="top: 85%; left: 30%; animation-delay: 5s;">Erum við ekki bara góðir?</div>
-  <div class="quote" style="top: 90%; left: 35%; animation-delay: 0s;">Bald lives matter!</div>
+  <!-- Floating quotes injected by JS -->
+
   <div class="container">
-   <h1>TEKINN!</h1>
-     <a href="horfa.html"><img src="auddi-tekinn.jpg" alt="TEKINN" /></a>
-  </br>
-    <audio controls autoplay>
+    <h1>TEKINN!</h1>
+    <a href="horfa.html" id="heroLink">
+      <img class="hero" src="auddi-tekinn.jpg" alt="TEKINN" id="heroImg" />
+    </a>
+  </div>
+
+  <audio id="bgAudio" loop>
     <source src="nidurhal.mp3" type="audio/mpeg">
   </audio>
-  </div>
+
+  <script>
+    /* ── AUDIO AUTOPLAY ── */
+    const audio = document.getElementById('bgAudio');
+    audio.play().catch(() => {
+      const unlock = () => {
+        audio.play();
+        ['click','keydown','touchstart'].forEach(e => document.removeEventListener(e, unlock));
+      };
+      ['click','keydown','touchstart'].forEach(e => document.addEventListener(e, unlock));
+    });
+
+    /* ── CUSTOM CURSOR ── */
+    const cursor = document.getElementById('cursor');
+    let mx = -100, my = -100;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+      spawnParticle(mx, my);
+    });
+
+    /* ── CURSOR TRAIL ── */
+    const colors = ['#ff00f2','#00ffee','#ff8c00','#ff0055','#aaff00'];
+    function spawnParticle(x, y) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 12 + 4;
+      p.style.cssText = `
+        left:${x}px; top:${y}px;
+        width:${size}px; height:${size}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        box-shadow: 0 0 ${size}px currentColor;
+        transform: translate(-50%,-50%);
+      `;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 600);
+    }
+
+    /* ── CLICK BURST ── */
+    const bursts = ['TEKINN!','😱','BLÖNDAL','AUDDI','WTF','ÞÚ!!','GILSARI','!!!!!'];
+    document.addEventListener('click', e => {
+      const b = document.createElement('div');
+      b.className = 'burst';
+      b.textContent = bursts[Math.floor(Math.random()*bursts.length)];
+      b.style.cssText = `
+        left:${e.clientX}px; top:${e.clientY}px;
+        color:${colors[Math.floor(Math.random()*colors.length)]};
+      `;
+      document.body.appendChild(b);
+      setTimeout(() => b.remove(), 700);
+    });
+
+    /* ── ANIMATED CANVAS BACKGROUND ── */
+    const canvas = document.getElementById('bgCanvas');
+    const ctx    = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Spawn background orbs
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * 1920,
+        y: Math.random() * 1080,
+        r: Math.random() * 80 + 20,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        hue: Math.random() * 360,
+        dh: (Math.random() - 0.5) * 3,
+        alpha: Math.random() * 0.4 + 0.1,
+      });
+    }
+
+    function drawBg() {
+      ctx.fillStyle = 'rgba(0,0,0,0.15)';
+      ctx.fillRect(0, 0, W, H);
+
+      for (const p of particles) {
+        p.x  += p.dx; p.y  += p.dy; p.hue += p.dh;
+        if (p.x < -p.r) p.x = W + p.r;
+        if (p.x > W+p.r) p.x = -p.r;
+        if (p.y < -p.r) p.y = H + p.r;
+        if (p.y > H+p.r) p.y = -p.r;
+
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        grad.addColorStop(0, `hsla(${p.hue},100%,60%,${p.alpha})`);
+        grad.addColorStop(1, `hsla(${p.hue},100%,60%,0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+      requestAnimationFrame(drawBg);
+    }
+    drawBg();
+
+    /* ── FLOATING QUOTES ── */
+    const quoteTexts = [
+      'Auddi Blö!','Hvað segir kjellinn!','Gilsari í gangi!',
+      'Þetta reddast sko!','Auðunn Blöndal approves','Erum við ekki bara góðir?',
+      'Bald lives matter!','TEKINN 🤯','ÞÚ VARST TEKINN','Blöndal out here!!',
+      '😂😂😂','KJELLINN!!','Hvað er í gangi??','ÓTRÚLEGT','holy moly',
+    ];
+
+    function spawnQuote() {
+      const el = document.createElement('div');
+      el.className = 'quote';
+      el.textContent = quoteTexts[Math.floor(Math.random() * quoteTexts.length)];
+
+      const size = Math.random() * 1.6 + 0.7;
+      const startX = Math.random() * window.innerWidth;
+      const startY = window.innerHeight + 40;
+      const endX   = startX + (Math.random() - 0.5) * 300;
+      const dur    = Math.random() * 6000 + 5000;
+
+      el.style.cssText = `
+        left: ${startX}px;
+        top:  ${startY}px;
+        font-size: ${size}rem;
+        color: hsl(${Math.random()*360},100%,70%);
+        transform: rotate(${(Math.random()-0.5)*30}deg);
+        transition: transform ${dur}ms linear, top ${dur}ms linear, left ${dur}ms linear, opacity ${dur}ms linear;
+        opacity: 0;
+      `;
+      document.body.appendChild(el);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.top  = (Math.random() * -window.innerHeight * 0.8 - 40) + 'px';
+          el.style.left = endX + 'px';
+          el.style.opacity = (Math.random() * 0.6 + 0.4).toString();
+          el.style.transform = `rotate(${(Math.random()-0.5)*60}deg)`;
+        });
+      });
+
+      setTimeout(() => el.remove(), dur + 100);
+    }
+
+    // Spawn a quote every 400ms
+    setInterval(spawnQuote, 400);
+    // Seed a few immediately
+    for (let i = 0; i < 8; i++) setTimeout(spawnQuote, i * 120);
+
+    /* ── RANDOM TITLE COLOR FLASH ── */
+    const h1 = document.querySelector('h1');
+    setInterval(() => {
+      h1.style.color = `hsl(${Math.random()*360},100%,70%)`;
+    }, 300);
+
+    /* ── IMAGE RANDOM POSITION NUDGE ── */
+    const img = document.getElementById('heroImg');
+    setInterval(() => {
+      if (Math.random() < 0.15) {
+        img.style.filter = `hue-rotate(${Math.random()*360}deg) saturate(${2+Math.random()*3})`;
+        setTimeout(() => { img.style.filter = ''; }, 200);
+      }
+    }, 500);
+
+    /* ── PAGE SHAKE on cursor edge ── */
+    document.addEventListener('mousemove', e => {
+      const edge = 60;
+      const dL = e.clientX, dR = window.innerWidth - e.clientX;
+      const dT = e.clientY, dB = window.innerHeight - e.clientY;
+      if (Math.min(dL, dR, dT, dB) < edge) {
+        const dx = (Math.random()-0.5)*6;
+        const dy = (Math.random()-0.5)*6;
+        document.body.style.transform = `translate(${dx}px,${dy}px)`;
+        setTimeout(() => { document.body.style.transform = ''; }, 80);
+      }
+    });
+  </script>
 </body>
 </html>
