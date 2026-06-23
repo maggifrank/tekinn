@@ -5,3 +5,24 @@
   from = "/admin"
   to   = "/admin.html"
   status = 200
+
+# ── Security headers for all pages ──────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent the site from being iframed (clickjacking)
+    X-Frame-Options = "DENY"
+
+    # Stop browsers from MIME-sniffing responses away from the declared type
+    X-Content-Type-Options = "nosniff"
+
+    # Don't send the referrer to external sites
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Disable access to sensitive browser features
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+    # Content Security Policy — whitelist every external source the site uses
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src  'self' '
