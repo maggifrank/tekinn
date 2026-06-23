@@ -42,7 +42,11 @@
     {
       "quote": "holy moly"
     },
-    "{\"quote\":\"DJÖFULL ERTU TÆPUR MAÐUR!}",
-    "{\"quote\":\"You gaddem bald piece of shit!}"
+    {
+      "quote": "DJÖFULL ERTU TÆPUR MAÐUR!"
+    },
+    {
+      "quote": "You gaddem bald piece of shit!"
+    }
   ]
 }
